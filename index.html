@@ -106,6 +106,7 @@ h1,h2,h3,p{margin:0}
 .balls{position:absolute;inset:0;pointer-events:none}
 .ball{--s:var(--sd);position:absolute;left:var(--xd);top:var(--yd);width:var(--s);height:var(--s);margin:calc(var(--s) / -2) 0 0 calc(var(--s) / -2);z-index:var(--z,2)}
 .ball__f{width:100%;height:100%;animation:float var(--fd,6s) ease-in-out var(--fl,0s) infinite alternate}
+.hero .ball__f{translate:0 calc(var(--sy,0) * var(--k,.15) * -1px);rotate:calc(var(--sy,0) * var(--r,0) * 1deg)}
 .ball img{width:100%;height:100%;translate:calc(var(--px,0) * var(--d,12) * 1px) calc(var(--py,0) * var(--d,12) * 1px);transition:translate .7s var(--ease);filter:blur(var(--b,0px)) drop-shadow(0 calc(var(--s) * .14) calc(var(--s) * .12) rgba(1,10,90,.30))}
 .js .hero .ball{animation:drop 1.3s var(--dd,.4s) both}
 @keyframes drop{
@@ -282,7 +283,8 @@ h1,h2,h3,p{margin:0}
   .hero .trevo--b{width:420px;height:420px;right:-170px;bottom:-150px}
   .hero__photo{left:-26%;width:152%}
   .balls{bottom:auto;height:clamp(460px,132vw,640px)}
-  .hero .ball{--s:var(--sm);left:var(--xm);top:var(--ym)}
+  .hero .ball{--s:var(--sm);left:var(--xm);top:var(--ym);z-index:var(--zm,var(--z,2))}
+  .hero .ball img{filter:blur(var(--bm,var(--b,0px))) drop-shadow(0 calc(var(--s) * .16) calc(var(--s) * .13) rgba(1,8,70,.38))}
   .hero .ball[data-m="off"]{display:none}
   .promo > .ball{--s:clamp(58px,16vw,78px);top:0}
   .promo--hora > .ball{left:86%}
@@ -308,6 +310,8 @@ h1,h2,h3,p{margin:0}
   .facts,.facts--3{grid-template-columns:repeat(2,minmax(0,1fr));max-width:none}
   .facts--3 div:last-child{grid-column:1 / -1}
   .faq details p{padding-right:0}
+  .final__row{gap:5px}
+  .final__row img{width:clamp(36px,11.6vw,72px)}
 
   .mbar{position:fixed;z-index:55;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px));display:flex;align-items:center;justify-content:space-between;gap:12px;padding:8px 8px 8px 20px;border-radius:999px;background:rgba(6,16,72,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);color:#fff;box-shadow:0 18px 40px -16px rgba(6,16,72,.7);transform:translateY(160%);transition:transform .45s var(--ease)}
   .mbar.is-on{transform:none}
@@ -368,14 +372,14 @@ h1,h2,h3,p{margin:0}
     </div>
 
     <div class="balls" aria-hidden="true">
-      <div class="ball" style="--xd:58%;--yd:18%;--sd:clamp(72px,8.2vw,128px);--xm:13%;--ym:21%;--sm:64px;--d:10;--b:.6px;--dd:.55s;--fd:6.2s" ><div class="ball__f"><img src="assets/img/b07.webp" alt=""></div></div>
-      <div class="ball" style="--xd:76%;--yd:33%;--sd:clamp(62px,7vw,108px);--xm:50%;--ym:27%;--sm:50px;--d:8;--b:.8px;--dd:.7s;--fd:5.4s;--fl:-2s"><div class="ball__f"><img src="assets/img/b58.webp" alt=""></div></div>
-      <div class="ball" style="--xd:92%;--yd:15%;--sd:clamp(90px,10.4vw,160px);--xm:88%;--ym:19%;--sm:78px;--d:14;--dd:.45s;--fd:7s;--fl:-1s"><div class="ball__f"><img src="assets/img/b33.webp" alt=""></div></div>
-      <div class="ball" style="--xd:95%;--yd:92%;--sd:clamp(130px,15vw,230px);--xm:92%;--ym:95%;--sm:112px;--z:4;--d:34;--b:2.4px;--dd:.9s;--fd:6.6s;--fl:-3s"><div class="ball__f"><img src="assets/img/b64.webp" alt=""></div></div>
-      <div class="ball" style="--xd:49.5%;--yd:81%;--sd:clamp(110px,12vw,180px);--xm:11%;--ym:96%;--sm:98px;--z:4;--d:26;--dd:.8s;--fd:5.8s;--fl:-1.5s"><div class="ball__f"><img src="assets/img/b42.webp" alt=""></div></div>
-      <div class="ball" data-m="off" style="--xd:45%;--yd:19%;--sd:clamp(56px,6.2vw,94px);--xm:0;--ym:0;--sm:0px;--d:9;--b:.4px;--dd:.6s;--fd:6s;--fl:-2.5s"><div class="ball__f"><img src="assets/img/b21.webp" alt=""></div></div>
-      <div class="ball" data-m="off" style="--xd:1%;--yd:97%;--sd:clamp(90px,9vw,140px);--xm:0;--ym:0;--sm:0px;--z:4;--d:30;--b:2px;--dd:1s;--fd:6.4s;--fl:-.5s"><div class="ball__f"><img src="assets/img/b75.webp" alt=""></div></div>
-      <div class="ball" data-m="off" style="--xd:31%;--yd:16%;--sd:clamp(44px,4.6vw,70px);--xm:0;--ym:0;--sm:0px;--d:6;--b:1.2px;--dd:.5s;--fd:5s;--fl:-3.5s"><div class="ball__f"><img src="assets/img/b13.webp" alt=""></div></div>
+      <div class="ball" style="--xd:58%;--yd:18%;--sd:clamp(72px,8.2vw,128px);--xm:13%;--ym:24%;--sm:60px;--d:10;--b:.6px;--dd:.55s;--fd:6.2s;--k:.14;--r:.06"><div class="ball__f"><img src="assets/img/b07.webp" alt=""></div></div>
+      <div class="ball" style="--xd:76%;--yd:33%;--sd:clamp(62px,7vw,108px);--xm:51%;--ym:31%;--sm:46px;--d:8;--b:.8px;--dd:.7s;--fd:5.4s;--fl:-2s;--k:.1;--r:-.05"><div class="ball__f"><img src="assets/img/b58.webp" alt=""></div></div>
+      <div class="ball" style="--xd:92%;--yd:15%;--sd:clamp(90px,10.4vw,160px);--xm:88%;--ym:22%;--sm:74px;--d:14;--dd:.45s;--fd:7s;--fl:-1s;--k:.18;--r:-.07"><div class="ball__f"><img src="assets/img/b33.webp" alt=""></div></div>
+      <div class="ball" style="--xd:95%;--yd:92%;--sd:clamp(130px,15vw,230px);--xm:83%;--ym:87%;--sm:104px;--z:4;--d:34;--b:2.4px;--bm:.8px;--dd:.9s;--fd:6.6s;--fl:-3s;--k:.38;--r:.09"><div class="ball__f"><img src="assets/img/b64.webp" alt=""></div></div>
+      <div class="ball" style="--xd:49.5%;--yd:81%;--sd:clamp(110px,12vw,180px);--xm:14%;--ym:97%;--sm:96px;--z:4;--d:26;--dd:.8s;--fd:5.8s;--fl:-1.5s;--k:.3;--r:-.08"><div class="ball__f"><img src="assets/img/b42.webp" alt=""></div></div>
+      <div class="ball" data-m="off" style="--xd:45%;--yd:19%;--sd:clamp(56px,6.2vw,94px);--xm:4%;--ym:55%;--sm:54px;--zm:4;--bm:1.4px;--d:9;--b:.4px;--dd:.6s;--fd:6s;--fl:-2.5s;--k:.12;--r:.06"><div class="ball__f"><img src="assets/img/b21.webp" alt=""></div></div>
+      <div class="ball" data-m="off" style="--xd:1%;--yd:97%;--sd:clamp(90px,9vw,140px);--xm:0;--ym:0;--sm:0px;--z:4;--d:30;--b:2px;--dd:1s;--fd:6.4s;--fl:-.5s;--k:.35;--r:-.06"><div class="ball__f"><img src="assets/img/b75.webp" alt=""></div></div>
+      <div class="ball" style="--xd:31%;--yd:16%;--sd:clamp(44px,4.6vw,70px);--xm:67%;--ym:18%;--sm:40px;--bm:.7px;--d:6;--b:1.2px;--dd:.5s;--fd:5s;--fl:-3.5s;--k:.06;--r:.04"><div class="ball__f"><img src="assets/img/b13.webp" alt=""></div></div>
     </div>
 
     <div class="hero__copy">
@@ -651,8 +655,15 @@ const LINKS = {
   const onScroll = () => nav.classList.toggle('is-scrolled', scrollY > 24);
   addEventListener('scroll', onScroll, { passive: true }); onScroll();
 
-  /* parallax do hero (só mouse) */
   const hero = document.getElementById('hero');
+  /* parallax de rolagem das bolas (desktop e mobile) */
+  if (!reduce) {
+    let ticking = false;
+    const setSY = () => { hero.style.setProperty('--sy', Math.min(scrollY, hero.offsetHeight).toFixed(0)); ticking = false; };
+    addEventListener('scroll', () => { if (!ticking) { ticking = true; requestAnimationFrame(setSY); } }, { passive: true });
+  }
+
+  /* parallax do hero (só mouse) */
   if (!reduce && matchMedia('(pointer: fine)').matches) {
     let raf = 0;
     hero.addEventListener('pointermove', e => {
